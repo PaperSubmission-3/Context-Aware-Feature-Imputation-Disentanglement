@@ -1,5 +1,8 @@
 # BEEP
-This repository contains code to run the BEEP (Biomedical Evidence Enhanced Predictions) clinical outcome prediction system, described in our NAACL Findings 2022 paper: [Literature Augmented Clinical Outcome Prediction](https://arxiv.org/abs/2111.08374)
+This repository contains code to run the Structural Aware Clinical outcome prediction system.
+
+## Dataset 
+Thanks for open-souring the project by beep https://github.com/allenai/BEEP/tree/main, we utilize the same strategy to filter the dataset from the MIMIC-III dataset ([download here](https://physionet.org/content/mimiciii-demo/1.4/)). You will also need to process and segment the dataset by the strategy in (https://github.com/LuChang-CS/semi-structured-icd-coding).
 
 ## Code Setup
 This code was developed in python 3.8 using the libraries listed in environment.yml. The easiest way to run this code is to set up a conda environment using the .yml file via the following command:
@@ -8,26 +11,6 @@ This code was developed in python 3.8 using the libraries listed in environment.
 
 Activate the conda environment using the command: ```conda activate beep-env```
 
-After activating the environment, run this command: ```python -m ipykernel install --user --name beep-env --display-name "Python (beep-env)"```. This will ensure that beep-env is available as a kernel option when running jupyter notebooks.
-
-In addition to environment setup, you will need access to the MIMIC-III dataset ([download here](https://physionet.org/content/mimiciii-demo/1.4/)). You will also need to download additional data and trained models from our AWS S3 bucket, especially if you are interested in replicating results from our paper. These resources can be downloaded using the following command:
-
-```aws s3 sync --no-sign-request s3://ai2-s2-beep models/```
-
-Note that you need to have AWS CLI installed on your machine to execute this command. Move the pubmed_texts_and_dates.pkl file to the data directory.
-
-## Creating Outcome Prediction Datasets
-Our paper evaluates the performance of BEEP on predicting three clinical outcomes:
-
-1. Mortality 
-2. Length of Stay
-3. Prolonged Mechanical Ventilation
-
-For mortality and length of stay, we use the same datasets developed by [van Aken et al (2021)](https://aclanthology.org/2021.eacl-main.75/), which can be obtained [here](https://github.com/bvanaken/clinical-outcome-prediction). For mechanical ventilation, the cohort is a subset of the mortality cohort, and the dataset can be constructed by running the following command from the data directory:
-
-```python generate_pmv_data <PATH_TO_MORTALITY_DIR>```
-
-Note that <PATH_TO_MORTALITY_DIR> refers to the path to the directory containing the train, dev and test files generated for mortality prediction.
 
 ## Replicating Outcome Prediction Results
 To replicate any of our outcome prediction results, you only need to run the outcome prediction module in BEEP, which can be done using the following command:
