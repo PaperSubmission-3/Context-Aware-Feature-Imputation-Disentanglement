@@ -1,5 +1,5 @@
 # BEEP
-This repository contains code to run the Structural Aware Clinical outcome prediction system.
+This repository contains code to run the Structural Aware Orthogonal Constraint (SAOC) Clinical outcome prediction system.
 
 ## Dataset 
 Thanks for open-souring the project by beep https://github.com/allenai/BEEP/tree/main, we utilize the same strategy to filter the dataset from the MIMIC-III dataset ([download here](https://physionet.org/content/mimiciii-demo/1.4/)). You will also need to process and segment the dataset by the strategy in (https://github.com/LuChang-CS/semi-structured-icd-coding).
@@ -13,7 +13,7 @@ Activate the conda environment using the command: ```conda activate beep-env```
 
 
 ## Replicating Outcome Prediction Results
-To replicate any of our outcome prediction results, you only need to run the outcome prediction module in BEEP, which can be done using the following command:
+To replicate any of our outcome prediction results, you only need to run the outcome prediction module in SAOC, which can be done using the following command:
 
 ```
 python run_outcome_prediction.py 
